@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قصيدة - جنشي سمير</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+
+        body {
+            font-family: 'Amiri', 'Scheherazade New', serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.8;
+            direction: rtl;
+            text-align: right;
+        }
+
+        .container {
+            max-width: 21cm;
+            margin: 0 auto;
+            background: white;
+            min-height: 29.7cm;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+            margin-bottom: 30px;
+        }
+
+        .title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .author {
+            font-size: 24px;
+            color: #ffd700;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .author-english {
+            font-size: 18px;
+            color: rgba(255,255,255,0.9);
+            font-style: italic;
+        }
+
+        .poem-container {
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 3px solid #ffd700;
+        }
+
+        .poem {
+            font-size: 20px;
+            line-height: 2.2;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .verse {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: linear-gradient(45deg, rgba(255,215,0,0.1), rgba(102,126,234,0.1));
+            border-radius: 8px;
+            border-right: 4px solid #667eea;
+        }
+
+        .verse-line {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .decorative-border {
+            border: 2px solid #667eea;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.9), rgba(245,247,250,0.9));
+        }
+
+        .signature {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .signature-title {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .signature-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+
+        .signature-english {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            font-style: italic;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 50%;
+            transform: translateX(50%);
+            color: #667eea;
+            font-size: 14px;
+        }
+
+        .decorative-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .corner-decoration {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, rgba(255,215,0,0.3), rgba(102,126,234,0.3));
+            border-radius: 50%;
+        }
+
+        .corner-decoration.top-left {
+            top: -50px;
+            left: -50px;
+        }
+
+        .corner-decoration.top-right {
+            top: -50px;
+            right: -50px;
+        }
+
+        .corner-decoration.bottom-left {
+            bottom: -50px;
+            left: -50px;
+        }
+
+        .corner-decoration.bottom-right {
+            bottom: -50px;
+            right: -50px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            .container {
+                box-shadow: none;
+                width: 100%;
+                max-width: none;
+                margin: 0;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+        }
+
+        .print-instructions {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+            direction: ltr;
+        }
+
+        .print-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .print-btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="decorative-elements">
+            <div class="corner-decoration top-left"></div>
+            <div class="corner-decoration top-right"></div>
+            <div class="corner-decoration bottom-left"></div>
+            <div class="corner-decoration bottom-right"></div>
+        </div>
+
+        <div class="header">
+            <div class="author-english">Guenchi Samir</div>
+        </div>
+
+        <div class="poem-container">
+            <div class="decorative-border">
+                <div class="poem">
+                    <div class="verse">
+                        <span class="verse-line">أما رأيتِ النورَ مذ لاحَ في البشرِ؟</span>
+                        <span class="verse-line">أم أنتِ من نسلِ ضوءٍ خُلِقَ من قَدَرِ؟</span>
+                    </div>
+
+                    <div class="verse">
+                        <span class="verse-line">أقسمتُ ما مرَّ بي حُسنٌ يضاهيكِ، لا،</span>
+                        <span class="verse-line">ولا تهيّأتِ الأكوانُ في صُوَرِ.</span>
+                    </div>
+
+                    <div class="verse">
+                        <span class="verse-line">ما بين جفنيكِ أسرارٌ مؤرَّقة،</span>
+                        <span class="verse-line">كأن فيها دُجىً يُخفي مع القَمَرِ،</span>
+                    </div>
+
+                    <div class="verse">
+                        <span class="verse-line">وفي ابتسامكِ، ألحانٌ مغنّيةٌ،</span>
+                        <span class="verse-line">ترقصُ لها الروحُ من فرطِ التوقِ والخَفَرِ.</span>
+                    </div>
+
+                    <div class="verse">
+                        <span class="verse-line">كأنك الحسنُ في أسمى تجلّيه، بل،</span>
+                        <span class="verse-line">كأنك الفِكرُ لمّا شاع في البَشَرِ،</span>
+                    </div>
+
+                    <div class="verse">
+                        <span class="verse-line">تُصغي الحياةُ إذا ما جئتِ سائرةً،</span>
+                        <span class="verse-line">ويُغلقُ الوردُ أجفانًا من الحَذَرِ.</span>
+                    </div>
+
+                    <div class="verse">
+                        <span class="verse-line">يا من تُذيبينَ صدري دونما لهَبٍ،</span>
+                        <span class="verse-line">وكأن طرفَكِ سهمٌ دونَ مُعتذرِ،</span>
+                    </div>
+
+                    <div class="verse">
+                        <span class="verse-line">عيناكِ ما بينَ سحرٍ لا يُفسَّرُ لي،</span>
+                        <span class="verse-line">وبين عقلٍ يُجلّي كلَّ مُندثِرِ.</span>
+                    </div>
+
+                    <div class="verse">
+                        <span class="verse-line">أهوى خُطاكِ لأنّي حين أتبعُها،</span>
+                        <span class="verse-line">أُبصرُ الدربَ فكراً، لا على وَتَرِ،</span>
+                    </div>
+
+                    <div class="verse">
+                        <span class="verse-line">فأنتِ لستِ كمن تغوي بجارحةٍ،</span>
+                        <span class="verse-line">بل أنتِ فكرةُ عقلٍ ناطقٍ سَحَرِي.</span>
+                    </div>
+
+                    <div class="verse">
+                        <span class="verse-line">يا زهرةً بين فكري والجنونِ، إذا</span>
+                        <span class="verse-line">مرّ النسيمُ بذكراكِ استعاد أثَرِي،</span>
+                    </div>
+
+                    <div class="verse">
+                        <span class="verse-line">ما كنتِ حلمًا ولا طيفًا بذاكرتي،</span>
+                        <span class="verse-line">لكنكِ اليومَ نَفسي... أو أنا صُوَرِي.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="signature">
+            <div class="signature-title">الشاعر</div>
+            <div class="signature-english">Guenchi Samir</div>
+        </div>
+
+        <div class="page-number">صفحة ١</div>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            // Hide print instructions for cleaner PDF
+            document.querySelector('.print-instructions').style.display = 'none';
+            
+            // Trigger print dialog
+            window.print();
+            
+            // Show instructions again after print dialog
+            setTimeout(() => {
+                document.querySelector('.print-instructions').style.display = 'block';
+            }, 1000);
+        }
+
+        // Hide print instructions when printing
+        window.addEventListener('beforeprint', function() {
+            document.querySelector('.print-instructions').style.display = 'none';
+        });
+
+        window.addEventListener('afterprint', function() {
+            document.querySelector('.print-instructions').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
